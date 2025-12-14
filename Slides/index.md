@@ -8,18 +8,22 @@ class: lead
 
 # Plan du cours 
 
-## Introduction - les principes fondamentaux
+## Introduction — principes fondamentaux
 
-1. [Introduction](https://antoine07.github.io/nexts-h3/introduction.html)
+1. [Introduction à Next.js](https://antoine07.github.io/nexts-h3/introduction.html)
+2. [Installation de l'environnement](https://antoine07.github.io/nexts-h3/installation.html)
+3. [Structure de l'application et routing](https://antoine07.github.io/nexts-h3/01_routing.html)
 
-1. [installation](https://antoine07.github.io/nexts-h3/installation.html)
-1. [structure de l'application](https://antoine07.github.io/nexts-h3/01_routing.html)
-
-1. [TP 01 quiz](https://github.com/Antoine07/nexts-h3/blob/main/TPs/01_routing.md)
-
+4. [TP 01 — Routing et structure du quiz](https://github.com/Antoine07/nexts-h3/blob/main/TPs/01_routing.md)
 
 ---
 
-## Stucture du rendu 
+## Structure du rendu
 
-1. [Structure des dossiers ui/components](https://antoine07.github.io/nexts-h3/structure.html)
+1. [Organisation des dossiers UI et components](https://antoine07.github.io/nexts-h3/structure.html)
+
+---
+
+## Projet fil rouge — User Stories
+
+[Sujet fil rouge du projet](https://github.com/Antoine07/nexts-h3)

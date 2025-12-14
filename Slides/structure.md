@@ -305,3 +305,10 @@ export default function QuizPage() {
 ## TP quiz 
 
 [Navigation et composants : afficher le détail d'un quiz](https://github.com/Antoine07/nexts-h3/blob/main/TPs/02_btn_components)
+
+
+---
+
+## Retour au plan 
+
+[plan](https://antoine07.github.io/nexts-h3)

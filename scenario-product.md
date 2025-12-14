@@ -326,11 +326,3 @@ Préparer l’application pour la **sélection réelle d’un quiz**, en cohére
 
 ---
 
-### Intention pédagogique
-
-Cette tâche permet de :
-
-* Consolider la compréhension du routing Next.js
-* Donner du sens aux routes dynamiques
-* Préparer naturellement la transition vers le chargement de données (JSON puis base de données)
-

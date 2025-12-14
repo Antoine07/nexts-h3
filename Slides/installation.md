@@ -79,3 +79,9 @@ http://localhost:3000
 1. `app/layout.tsx` correspond au layout global (modèle pour d'autres pages).
 
 *Aucune configuration manuelle du routing n'est nécessaire.*
+
+---
+
+## Retour au plan 
+
+[plan](https://antoine07.github.io/nexts-h3)

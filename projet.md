@@ -1,23 +1,33 @@
-# Sujet fil rouge — Application de quiz pédagogique avec Next.js
+# Projet — Application de quiz pédagogique avec Next.js
 
 ## Contexte général
 
 Une organisation de formation souhaite disposer d'une **application web de quiz pédagogiques** permettant aux apprenants de tester leurs connaissances après chaque module de cours.
-L'application doit être moderne, performante, maintenable et conçue selon les bonnes pratiques de **Next.js (App Router)**.
+L'application doit être **performante**, **maintenable** et conçue selon les bonnes pratiques de **Next.js (App Router)**.
 
-Le projet est développé de manière incrémentale, en suivant une logique produit.
+Le projet est développé de manière **incrémentale**, en suivant une **logique produit**.
+
+Vous êtes libre concernant le design de l'application. En revanche, vous devez **respecter la structuration attendue d'une application Next.js**.
+
+Un **dossier de conception** (format libre) devra être fourni avec l'application.
+Le **code source final** devra être livré à la fin du projet.
+
+L'utilisation de **Git** et d'un **dépôt distant** est obligatoire.
+Un **Gitflow minimal** devra être mis en place.
 
 ---
 
-## User story principale (macro)
+## User story principale
 
 > **En tant qu'apprenant**,
 > je souhaite accéder à une plateforme de quiz en ligne,
-> afin de sélectionner un quiz, répondre aux questions, visualiser ma progression et consulter mon score final.
+> afin de sélectionner un quiz, répondre aux questions, suivre ma progression et consulter mon score final.
 
 ---
 
-## Déclinaison en user stories fonctionnelles (alignées avec les séances)
+## Déclinaison en user stories fonctionnelles
+
+---
 
 ### US1 — Accéder à l'application et comprendre son objectif (Séances 10–11)
 
@@ -27,10 +37,11 @@ Le projet est développé de manière incrémentale, en suivant une logique prod
 
 **Critères d'acceptation**
 
-* Application initialisée avec Next.js App Router
+* Application initialisée avec **Next.js App Router**
 * Layout global commun à toutes les pages
 * Page d'accueil accessible via `/`
 * Structure de dossiers claire et évolutive
+* Présence de **données de quiz factices** dans l'application
 
 ---
 
@@ -43,24 +54,24 @@ Le projet est développé de manière incrémentale, en suivant une logique prod
 **Critères d'acceptation**
 
 * Route `/quiz` accessible depuis la navigation
-* Liste de quiz affichée (d'abord en dur, puis dynamique)
-* Navigation fonctionnelle via `Link`
-* Routes dynamiques `/quiz/[id]` préparées
+* Liste de quiz affichée (d'abord en données statiques, puis dynamiques)
+* Navigation fonctionnelle via le composant `Link`
+* Routes dynamiques `/quiz/[id]` mises en place
 
 ---
 
 ### US3 — Charger et afficher les données des quiz (Séances 14–15)
 
 > **En tant qu'utilisateur**,
-> je souhaite que les quiz affichent leurs vraies questions et réponses,
-> afin de pouvoir réellement passer un quiz.
+> je souhaite que les quiz affichent leurs questions et réponses réelles,
+> afin de pouvoir passer un quiz complet.
 
 **Critères d'acceptation**
 
 * Données chargées depuis un fichier JSON local
-* Utilisation des Server Components et de `fetch`
-* Mise en place d'une base de données MySQL (entités définies)
-* Présentation d'une récupération de données persistantes avec TanStack Query
+* Utilisation des **Server Components** et de `fetch`
+* Mise en place d'une base de données **MySQL** (entités définies)
+* Présentation d'un mécanisme de récupération de données persistantes
 * Page `/quiz/[id]` connectée à ses données
 
 ---
@@ -73,11 +84,11 @@ Le projet est développé de manière incrémentale, en suivant une logique prod
 
 **Critères d'acceptation**
 
-* Gestion de l'état global avec Zustand
+* Gestion de l'état global avec **Zustand**
 * Suivi de la question courante
 * Calcul du score
 * Affichage du résultat final
-* Persistance optionnelle via stockage local
+* Persistance optionnelle via le stockage local
 
 ---
 
@@ -89,10 +100,10 @@ Le projet est développé de manière incrémentale, en suivant une logique prod
 
 **Critères d'acceptation**
 
-* Styling structuré avec Tailwind CSS
-* Pages cohérentes visuellement
+* Styling structuré avec **Tailwind CSS**
+* Cohérence visuelle entre les pages
 * Page de quiz finalisée graphiquement
-* Route API interne simple (`/api/hello`) consommée dans l'UI
+* Route API interne simple (`/api/hello`) consommée dans l'interface
 * Page `/history` affichant l'historique des scores
 
 ---
@@ -101,25 +112,12 @@ Le projet est développé de manière incrémentale, en suivant une logique prod
 
 > **En tant que développeur**,
 > je souhaite livrer une application structurée, documentée et déployable,
-> afin de démontrer la maîtrise de Next.js et de l'architecture moderne.
+> afin de démontrer la maîtrise de Next.js et d'une architecture moderne.
 
 **Critères d'acceptation**
 
 * Structure de code claire et justifiée
 * Séparation logique des responsabilités
-* Utilisation cohérente de Next.js, Zustand, Tailwind et API routes
+* Utilisation cohérente de **Next.js**, **Zustand**, **Tailwind CSS** et des **API routes**
 * Application fonctionnelle et testée manuellement
 * Présentation orale argumentée (architecture, choix techniques)
-
----
-
-## Résumé pédagogique
-
-Ce sujet permet de :
-
-* Construire une **application complète et réaliste**
-* Introduire progressivement les concepts clés de Next.js
-* Donner du sens aux notions (routing, data fetching, state management, API)
-* Aboutir à un livrable défendable en soutenance
-
-Si besoin, ce sujet peut ensuite être décliné en **backlog agile**, **critères d'évaluation** ou **grille de notation**.

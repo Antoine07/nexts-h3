@@ -137,3 +137,10 @@ Next.js permet de :
 > **Par défaut, les composants sont exécutés sur le serveur et génèrent du HTML et du CSS**, ce qui permet un affichage rapide et un JavaScript minimal côté client.
 > **Lorsqu'un composant doit être interactif**, on utilise "use client" pour indiquer que son code doit être envoyé au navigateur, compilé et exécuté côté client.
 Next.js permet ainsi de combiner rendu serveur et interactivité, en envoyant uniquement le JavaScript nécessaire.
+
+
+---
+
+## Retour au plan 
+
+[plan](https://antoine07.github.io/nexts-h3)
