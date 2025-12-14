@@ -19,3 +19,7 @@ class: lead
 
 
 ---
+
+## Stucture du rendu 
+
+1. [Structure des dossiers ui/components](https://antoine07.github.io/nexts-h3/structure.html)
