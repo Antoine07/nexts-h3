@@ -128,3 +128,12 @@ Next.js permet de :
 1. sans changer d'outil
 
 ➡️ Plus de flexibilité, sans complexité excessive.
+
+---
+
+## A savoir
+
+> Avec Next.js, le code JavaScript peut s'exécuter soit côté serveur, soit côté navigateur.
+> **Par défaut, les composants sont exécutés sur le serveur et génèrent du HTML et du CSS**, ce qui permet un affichage rapide et un JavaScript minimal côté client.
+> **Lorsqu'un composant doit être interactif**, on utilise "use client" pour indiquer que son code doit être envoyé au navigateur, compilé et exécuté côté client.
+Next.js permet ainsi de combiner rendu serveur et interactivité, en envoyant uniquement le JavaScript nécessaire.
