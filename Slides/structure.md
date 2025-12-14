@@ -5,219 +5,303 @@ paginate: true
 class: lead
 ---
 
-## Structure d'une application Next.js (App Router)
+## Organiser le rendu avec des composants UI
 
 ---
 
-## Le dossier `app/` : racine du routing
+## Pourquoi organiser le rendu ?
 
-Le dossier `app/` est le **point de départ du routing** dans Next.js.
+Quand une application grandit :
 
-Principes fondamentaux :
+- les pages deviennent longues
+- le JSX est difficile à lire
+- le rendu est difficile à réutiliser
 
-- **La structure des dossiers définit les URLs**
-- **Aucune configuration de routes n'est nécessaire**
-
-➡️ On lit directement les routes dans l'arborescence.
+➡️ Il faut **séparer la structure de page du rendu UI**.
 
 ---
 
-## Pages : `page.js`
+## Principe général
 
-Un fichier `page.js` :
+Dans une application Next.js :
 
-- représente **une page accessible par URL**
-- exporte un composant React par défaut
+- **Les pages** orchestrent (routing, données)
+- **Les composants UI** affichent (HTML, CSS)
+- Chaque composant a un rôle clair
+
+➡️ On gagne en lisibilité et en réutilisabilité.
+
+---
+
+## Dossier `ui/`
+
+On crée un dossier dédié aux composants visuels.
 
 Exemple :
 
 ```txt
-app/page.js
+src/
+ ├── app/
+ ├── data/
+ └── ui/
+     └── QuizCard.js
 ```
 
-URL correspondante :
-
-```
-/
-```
+➡️ Le dossier `ui/` contient uniquement du rendu.
 
 ---
 
-## Exemple avec un sous-dossier
+## Exemple : composant UI simple
 
-```txt
-app/quiz/page.js
-```
+### `src/ui/QuizCard.js`
 
-Crée automatiquement la route :
-
-```
-/quiz
+```js
+export default function QuizCard({ title, description, href }) {
+  return (
+    <article>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <a href={href}>Commencer le quiz</a>
+    </article>
+  );
+}
 ```
 
 À retenir :
 
-- un dossier = un segment d'URL
-- `page.js` est nécessaire pour afficher une page
+- pas de logique métier
+- pas de fetch
+- pas de state
+- uniquement du HTML / CSS
 
 ---
 
-## Layouts : `layout.js`
+## Utilisation dans une page
 
-Un fichier `layout.js` :
-
-- définit une **structure commune**
-- s'applique à toutes les pages du dossier concerné
-
-Il est utilisé pour :
-
-- la structure HTML
-- le header / footer
-- les styles globaux
-
----
-
-## Le rôle de `children`
-
-`children` représente **le contenu de la page affichée**.
-
-Le layout racine définit obligatoirement :
-
-- `<html>`
-- `<body>`
-
----
+### `src/app/quiz/page.js`
 
 ```js
-export default function RootLayout({ children }) {
+import { quizzes } from "@/data/quizzes";
+import QuizCard from "@/ui/QuizCard";
+
+export default function QuizListPage() {
   return (
-    <html lang="en">
-      <body>
-        <main>{children}</main>
-      </body>
-    </html>
-  )
+    <section>
+      <h1>Liste des quiz</h1>
+
+      {quizzes.map((quiz) => (
+        <QuizCard
+          key={quiz.id}
+          title={quiz.title}
+          description={quiz.description}
+          href={`/quiz/${quiz.id}`}
+        />
+      ))}
+    </section>
+  );
 }
 ```
 
-➡️ La page courante est injectée automatiquement à l'emplacement de `children`.
+➡️ La page reste lisible
+➡️ Le rendu est délégué au composant UI
 
 ---
 
-## Layouts imbriqués (par route)
+## Organisation finale
 
-Chaque dossier peut avoir son propre layout.
+```txt
+src/
+ ├── app/
+ │   └── quiz/
+ │       └── page.js
+ ├── data/
+ │   └── quizzes.js
+ └── ui/
+     └── QuizCard.js
+```
+
+---
+
+## Bonnes pratiques à retenir
+
+* Un composant UI = un rôle visuel
+* Les pages restent courtes
+* Le rendu est réutilisable
+* La structure est claire
+
+---
+
+## Exercice — Organisation UI
+
+### Objectif
+
+Extraire le rendu HTML de la page `/quiz` dans un composant UI réutilisable.
+
+---
+
+### À réaliser
+
+1. Créer le dossier `src/ui`
+2. Créer le composant `QuizCard`
+3. Déplacer le rendu HTML de `/quiz` vers `QuizCard`
+4. Utiliser `QuizCard` dans la page `/quiz`
+
+---
+
+## La notion de composants - dans Next ou React
+
+---
+
+## Qu'est-ce qu'un composant ?
+
+Un **composant** est une fonction React qui :
+
+- reçoit des données (props)
+- retourne du JSX
+- peut être réutilisée à plusieurs endroits
+
+➡️ Un composant sert à **découper l'interface**.
+
+---
+
+## Pourquoi utiliser des composants ?
+
+Sans composants :
+
+- les pages deviennent longues
+- le code est dupliqué
+- la maintenance est difficile
+
+Avec des composants :
+
+- le code est plus lisible
+- chaque partie a un rôle clair
+- on réutilise facilement le rendu
+
+---
+
+## Pages vs Components
+
+Dans une application Next.js :
+
+- **Les pages (`page.js`)**
+
+  - définissent une route
+  - orchestrent les données et le rendu
+
+- **Les composants**
+
+  - ne définissent pas de route
+  - servent uniquement à construire l'interface
+
+➡️ Une page est composée de composants.
+
+---
+
+## Exemple simple de composant
+
+```js
+export default function Title({ text }) {
+  return <h1>{text}</h1>;
+}
+```
+
+Ce composant :
+
+- reçoit une prop `text`
+- affiche un titre
+- peut être utilisé partout
+
+---
+
+## Utilisation dans une page
+
+```js
+import Title from "@/components/Title";
+
+export default function HomePage() {
+  return (
+    <section>
+      <Title text="Accueil" />
+      <p>Bienvenue sur l'application.</p>
+    </section>
+  );
+}
+```
+
+➡️ La page assemble plusieurs composants.
+
+---
+
+## Organisation des composants
+
+On organise les composants par rôle.
 
 Exemple :
 
 ```txt
-app/blog/layout.js
+src/
+ ├── app/          → pages et routing
+ ├── ui/           → composants purement visuels
+ └── components/   → composants génériques
 ```
 
-Ce layout s'applique uniquement aux pages :
+---
 
-```
-/blog
-```
+## Différence entre `components/` et `ui/`
+
+- **`ui/`**
+
+  - rendu HTML / CSS
+  - aucun lien avec le métier
+  - très réutilisable
+
+- **`components/`**
+
+  - composants génériques
+  - structure de page
+  - assemblage de UI components
+
+➡️ Les deux sont complémentaires.
+
+---
+
+## Exemple de composant générique
+
+### `src/components/Section.js`
 
 ```js
-export default function BlogLayout({ children }) {
-  return <section>{children}</section>
+export default function Section({ title, children }) {
+  return (
+    <section>
+      <h2>{title}</h2>
+      {children}
+    </section>
+  );
 }
 ```
 
-➡️ Les layouts sont **imbriqués automatiquement**.
-
 ---
 
-## Routes dynamiques
-
-Les dossiers entre crochets créent des routes variables.
-
-Exemple :
-
-```txt
-app/quiz/[id]/page.js
-```
-
-URLs possibles :
-
-```
-/quiz/1
-/quiz/2
-/quiz/42
-```
-
-➡️ `[id]` représente une variable dans l'URL
-➡️ Sa valeur est accessible dans la page
-
----
-
-## Routes dynamiques et asynchronisme
-
-Dans le **App Router**, les pages sont des **Server Components**.
-
-➡️ Certaines données (comme `params`)
-➡️ sont fournies **de manière asynchrone**
-➡️ sous forme de **Promise**
-
----
-
-## Ce qui ne fonctionne pas
+## Composition de composants
 
 ```js
-export default function Page({ params }) {
-  console.log(params.id) // ❌ erreur
+import Section from "@/components/Section";
+import QuizCard from "@/ui/QuizCard";
+
+export default function QuizPage() {
+  return (
+    <Section title="Liste des quiz">
+      <QuizCard title="Quiz JS" />
+    </Section>
+  );
 }
 ```
 
-`params` n'est pas encore résolu.
+➡️ Un composant peut contenir d'autres composants.
 
 ---
 
-## Bonne pratique
+## TP quiz 
 
-```js
-export default async function Page({ params }) {
-  const { id } = await params
-}
-```
-
-➡️ Une page dynamique peut (et doit) être `async`.
-
----
-
-## Exemple complet de structure
-
-```txt
-app/
- ├── layout.js
- ├── page.js
- └── quiz/
-     ├── page.js
-     └── [id]/
-         └── page.js
-```
-
-Correspondance :
-
-* `/` → page d'accueil
-* `/quiz` → liste des quiz
-* `/quiz/1` → quiz spécifique
-
----
-
-## Synthèse rapide
-
-* **Le routing est basé sur les fichiers**
-* **`page.js` crée une page**
-* **`layout.js` définit une structure partagée**
-* **`children` est l'emplacement du contenu**
-* **`[param]` crée une route dynamique**
-* **`params` est asynchrone dans les pages dynamiques**
-
----
-
-## 01 TP - Affichez les quiz 
-
-Récupérez le TP dans le dossier `TPs` de notre dépôt. 
+[Navigation et composants : afficher le détail d'un quiz](https://github.com/Antoine07/nexts-h3/blob/main/TPs/02_btn_components)

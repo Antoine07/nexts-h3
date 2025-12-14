@@ -90,3 +90,7 @@ export default function QuizDetailPage({ params }) {
   );
 }
 ```
+
+## Créez un layout spécifique
+
+Vous allez maintenant créez un layout spécifique pour les quiz, pensez à mettre le tag `children` dans ce dernier.

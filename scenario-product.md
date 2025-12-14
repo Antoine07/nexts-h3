@@ -41,7 +41,7 @@ npx create-next-app@latest quiz-app
 
 Options recommandées (expliquées à l'oral) :
 
-* TypeScript : oui
+* TypeScript : oui **(si vous voulez ce n'est pas une obligation)**
 * ESLint : oui
 * Tailwind CSS : oui
 * App Router : oui
