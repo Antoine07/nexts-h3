@@ -22,6 +22,10 @@ class: lead
 
 1. [Organisation des dossiers UI et components](https://antoine07.github.io/nexts-h3/structure.html)
 
+1. [Charger les données](https://antoine07.github.io/nexts-h3/charger_donnees.html)
+
+1. [TP fetch API](https://github.com/Antoine07/nexts-h3/blob/main/TPs/03_chargement_donnees)
+
 ---
 
 ## Projet fil rouge — User Stories

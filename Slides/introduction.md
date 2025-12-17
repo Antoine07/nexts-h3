@@ -94,17 +94,17 @@ Avantages :
 
 Principe :
 
-* la page est générée **à l'avance**
-* lors du build ou du déploiement
-* le HTML est stocké et réutilisé
+- la page est générée **à l'avance**
+- lors du build ou du déploiement
+- le HTML est stocké et réutilisé
 
 ---
 
 Avantages :
 
-* pages très rapides
-* peu de charge serveur
-* idéal pour du contenu qui change peu
+- pages très rapides
+- peu de charge serveur
+- idéal pour du contenu qui change peu
 
 À retenir :
 
