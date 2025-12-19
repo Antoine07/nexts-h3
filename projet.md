@@ -17,7 +17,7 @@ Un **Gitflow minimal** devra être mis en place.
 
 ## Démonstration
 
-[démo QCM](./assets/qcm.gif)
+![démo QCM](./assets/qcm.gif)
 
 ---
 
