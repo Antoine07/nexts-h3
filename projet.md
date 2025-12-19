@@ -15,6 +15,10 @@ Le **code source final** devra être livré à la fin du projet.
 L'utilisation de **Git** et d'un **dépôt distant** est obligatoire.
 Un **Gitflow minimal** devra être mis en place.
 
+## Démonstration
+
+[démo QCM](./assets/qcm.gif)
+
 ---
 
 ## User story principale
